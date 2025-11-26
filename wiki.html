@@ -13,98 +13,91 @@
         <button id="theme-toggle">Toggle Dark/Light</button>
     </header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#getting-started">Getting Started</a></li>
-                    <li><a href="#syntax">Syntax</a></li>
-                    <li><a href="#commands">Commands Reference</a></li>
-                    <li><a href="#examples">Examples</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+        </ul>
+    </nav>
 
-        <main class="content">
-            <section id="getting-started">
-                <h2>Getting Started</h2>
-                <p>
-                    ToSon is easy to set up. Download the files from the 
-                    <a href="https://github.com/ToSonCode/ToSon" target="_blank">main repository</a> 
-                    and follow these steps:
-                </p>
-                <ol>
-                    <li>Include your ToSon interpreter or runtime (if applicable).</li>
-                    <li>Create your first `.toson` file.</li>
-                    <li>Write your first ToSon command (see Examples below).</li>
-                </ol>
-            </section>
+    <main>
+        <section id="getting-started">
+            <h2>Getting Started</h2>
+            <p>
+                ToSon is easy to set up. Download the files from the 
+                <a href="https://github.com/ToSonCode/ToSon" target="_blank">main repository</a> 
+                and create your first `.toson` file.
+            </p>
+        </section>
 
-            <section id="syntax">
-                <h2>Syntax</h2>
-                <ul>
-                    <li><strong>Blocks:</strong> Use curly braces <code>{ }</code> and square brackets <code>[ ]</code> to define scopes.</li>
-                    <li><strong>Comments:</strong> Inline comments start with <code>~/<-</code>.</li>
-                    <li><strong>Variables:</strong> Defined using <code>variable: &lt;name&gt;</code>.</li>
-                    <li><strong>Strings:</strong> Enclosed in double quotes <code>" "</code>.</li>
-                    <li><strong>Commands:</strong> Use <code>say >:</code> or other defined commands inside blocks.</li>
-                </ul>
-            </section>
+        <section id="syntax">
+            <h2>Syntax</h2>
+            <ul>
+                <li>Blocks: Use curly braces <code>{ }</code> and square brackets <code>[ ]</code>.</li>
+                <li>Comments: Start with <code>~/<-</code>.</li>
+                <li>Variables: <code>let x > {"42"}</code>.</li>
+                <li>Commands: <code>say >: {...}</code> or <code>ask >: {...}</code>.</li>
+            </ul>
+        </section>
 
-            <section id="commands">
-                <h2>Commands Reference</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Command</th>
-                            <th>Description</th>
-                            <th>Usage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>say >:</code></td>
-                            <td>Prints text or variables to output.</td>
-                            <td>
-<pre><code>say >: { 
-    variable: none, 
-    text: "Hello World!" 
-    color: "green" 
-}</code></pre>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>variable >:</code></td>
-                            <td>Creates or assigns a variable.</td>
-                            <td>
-<pre><code>variable >: { 
-    name: "userName", 
-    value: "Kelsi" 
-}</code></pre>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>if >:</code></td>
-                            <td>Conditional execution based on variable or expression.</td>
-                            <td>
-<pre><code>if >: { 
-    condition: userName == "Kelsi",
-    do: {
-        say >: { text: "Welcome!" }
-    }
-}</code></pre>
-                            </td>
-                        </tr>
-                        <!-- Add more commands as ToSon grows -->
-                    </tbody>
-                </table>
-            </section>
+        <section id="commands">
+            <h2>Commands Reference</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Syntax Example</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>say</code></td>
+                        <td><pre><code>say >: {"Hello" ["green"]}</code></pre></td>
+                        <td>Print colored text</td>
+                    </tr>
+                    <tr>
+                        <td><code>let</code></td>
+                        <td><pre><code>let x > {"42"}</code></pre></td>
+                        <td>Assign variable</td>
+                    </tr>
+                    <tr>
+                        <td><code>ask</code></td>
+                        <td><pre><code>ask >: {have "name" output: "Your name?"}</code></pre></td>
+                        <td>Ask input</td>
+                    </tr>
+                    <tr>
+                        <td><code>if/else</code></td>
+                        <td><pre><code>if "x" >: {value:{"42"} ... else ... }</code></pre></td>
+                        <td>Conditional execution</td>
+                    </tr>
+                    <tr>
+                        <td><code>repeat</code></td>
+                        <td><pre><code>repeat 3 {say >:{"Hi"}}</code></pre></td>
+                        <td>Loop commands multiple times</td>
+                    </tr>
+                    <tr>
+                        <td><code>choose</code></td>
+                        <td><pre><code>choose >: {from:["A","B"] have "choice"}</code></pre></td>
+                        <td>Random selection</td>
+                    </tr>
+                    <tr>
+                        <td><code>set</code></td>
+                        <td><pre><code>set block "Main" >: [{key:val}]</code></pre></td>
+                        <td>Assign block variables</td>
+                    </tr>
+                    <tr>
+                        <td><code>list</code></td>
+                        <td><pre><code>list</code></pre></td>
+                        <td>Show all implemented commands</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-            <section id="examples">
-                <h2>Examples</h2>
-                <p>Simple command:</p>
-                <pre><code>
+        <section id="examples">
+            <h2>Examples</h2>
+            <pre><code>
 [{Main}]{ ~/<-this is a comment
     say >: {
         variable: none,
@@ -112,34 +105,8 @@
         color: "green"
     }
 }</code></pre>
-
-                <p>Using variables:</p>
-                <pre><code>
-[{Main}]{
-    variable >: {
-        name: "userName",
-        value: "Kelsi"
-    }
-    say >: {
-        variable: userName,
-        text: "Welcome to ToSon!"
-        color: "blue"
-    }
-}</code></pre>
-            </section>
-
-            <section id="resources">
-                <h2>Resources</h2>
-                <ul>
-                    <li><a href="https://github.com/ToSonCode/ToSon" target="_blank">Main ToSon Repository</a></li>
-                    <li><a href="https://github.com/ToSonCode/ToSon-resources" target="_blank">ToSon Resources Repository</a></li>
-                    <li><a href="https://github.com/ToSonCode/ToSon/wiki" target="_blank">Documentation & Wiki</a></li>
-                    <li><a href="https://github.com/ToSonCode/ToSon/issues" target="_blank">Report Issues / Feedback</a></li>
-                    <li><a href="https://github.com/ToSonCode/ToSon/releases" target="_blank">Download ToSon Files / SDK</a></li>
-                </ul>
-            </section>
-        </main>
-    </div>
+        </section>
+    </main>
 
     <footer>
         &copy; 2025 ToSon. All rights reserved.
