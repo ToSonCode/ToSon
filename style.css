@@ -35,7 +35,6 @@ nav ul {
     padding: 10px 0;
 }
 
-
 nav ul li {
     margin: 0 15px;
 }
@@ -54,56 +53,4 @@ main {
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 0.2em;
-}
-
-h2 {
-    color: #4CAF50;
-}
-
-p {
-    line-height: 1.6;
-}
-
-pre {
-    background-color: #2d2d2d;
-    color: #f8f8f2;
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto;
-    white-space: pre-wrap;
-}
-
-code {
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* Dark mode */
-body.dark {
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-}
-
-body.dark nav {
-    background-color: #2c2c2c;
-}
-
-body.dark nav ul li a {
-    color: #f0f0f0;
-}
-
-body.dark pre {
-    background-color: #3c3c3c;
-    color: #f8f8f2;
-}
-
-body.dark footer {
-    background-color: #2c2c2c;
-}
-
-/* ToSon syntax highlighting */
-.toson .comment { color: #6a9955; font-style: italic; }
-.toson .keyword { color: #569cd6; font-weight: bold; }
-.toson .string { color: #d69d85; }
-.toson .operator { color: #c586c0; }
-.toson .bracket { color: #d4d4d4; }
+    margin-bottom: 0
