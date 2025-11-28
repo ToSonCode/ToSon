@@ -30,16 +30,6 @@
             </p>
         </section>
 
-        <section id="syntax">
-            <h2>Syntax</h2>
-            <ul>
-                <li>Blocks: Use curly braces <code>{ }</code> and square brackets <code>[ ]</code>.</li>
-                <li>Comments: Start with <code>~/&lt;-</code>.</li>
-                <li>Variables: Use <code>let >: {...}</code>.</li>
-                <li>Commands: Use <code>say >: {...}</code>, <code>ask >: {...}</code>, etc.</li>
-            </ul>
-        </section>
-
         <section id="commands">
             <h2>Commands Reference</h2>
             <table>
@@ -52,102 +42,61 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>say</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;say >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;text: "Hello World"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;color: "green"<br>
-                            &nbsp;&nbsp;}<br>
+                        <td>say</td>
+                        <td>say &gt;: {<br>
+                            &nbsp;&nbsp;text: "Hello World"<br>
+                            &nbsp;&nbsp;color: "green"<br>
                         }</td>
                         <td>Print colored text</td>
                     </tr>
                     <tr>
-                        <td><strong>let</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;let >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;name: "x"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;value: 42<br>
-                            &nbsp;&nbsp;}<br>
-                        }</td>
-                        <td>Assign a variable</td>
+                        <td>let</td>
+                        <td>let x &gt;: { "42" }</td>
+                        <td>Assign variable</td>
                     </tr>
                     <tr>
-                        <td><strong>ask</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;ask >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;have: "name"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;output: "Your name? "<br>
-                            &nbsp;&nbsp;}<br>
+                        <td>ask</td>
+                        <td>ask &gt;: {<br>
+                            &nbsp;&nbsp;have "name" &gt;: [<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;be "ask1"<br>
+                            &nbsp;&nbsp;]<br>
+                            &nbsp;&nbsp;output: "Whats your name?"<br>
                         }</td>
-                        <td>Ask input and store it</td>
+                        <td>Ask input from user</td>
                     </tr>
                     <tr>
-                        <td><strong>if/else</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;if >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;if_var: "x"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;value: 42<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;then: [<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: "X is 42"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;]<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;else: [<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: "X is not 42"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;]<br>
-                            &nbsp;&nbsp;}<br>
+                        <td>if/else</td>
+                        <td>if "x" &gt;: { value: { "42" }<br>
+                            &nbsp;&nbsp;say &gt;: { text: "X is 42" }<br>
+                            else &gt;: {<br>
+                            &nbsp;&nbsp;say &gt;: { text: "X is not 42" }<br>
+                            }<br>
                         }</td>
                         <td>Conditional execution</td>
                     </tr>
                     <tr>
-                        <td><strong>repeat</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;repeat >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;times: 3<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;do: [<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: "Looping"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;]<br>
-                            &nbsp;&nbsp;}<br>
+                        <td>repeat</td>
+                        <td>repeat 3 {<br>
+                            &nbsp;&nbsp;say &gt;: { text: "Hi" }<br>
                         }</td>
                         <td>Loop commands multiple times</td>
                     </tr>
                     <tr>
-                        <td><strong>choose</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;choose >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;from: ["A", "B", "C"]<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;have: "choice"<br>
-                            &nbsp;&nbsp;}<br>
+                        <td>choose</td>
+                        <td>choose &gt;: {<br>
+                            &nbsp;&nbsp;from: ["A","B"]<br>
+                            &nbsp;&nbsp;have "choice"<br>
                         }</td>
-                        <td>Pick a random value from a list</td>
+                        <td>Random selection</td>
                     </tr>
                     <tr>
-                        <td><strong>set</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;set >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;name: "MainBlock"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;content: [<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "x"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: 10<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say >: {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: "Block running"<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;]<br>
-                            &nbsp;&nbsp;}<br>
-                        }</td>
-                        <td>Assign variables to a block</td>
+                        <td>set</td>
+                        <td>set block "Main" &gt;: [ { key: val } ]</td>
+                        <td>Assign block variables</td>
                     </tr>
                     <tr>
-                        <td><strong>list</strong></td>
-                        <td>[{Main}] {<br>
-                            &nbsp;&nbsp;list<br>
-                        }</td>
+                        <td>list</td>
+                        <td>list</td>
                         <td>Show all implemented commands</td>
                     </tr>
                 </tbody>
@@ -155,7 +104,7 @@
         </section>
 
         <section id="examples">
-            <h2>Examples</h2>
+            <h2>Example Usage</h2>
             <pre><code>
 [{Main}]{ ~/<-this is a comment
     say >: {
