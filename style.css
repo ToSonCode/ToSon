@@ -1,4 +1,4 @@
-/* Basic body styling */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,13 +14,24 @@ body.dark {
     color: #f1f1f1;
 }
 
-/* Header and footer */
-header, footer {
+/* Header */
+header {
+    padding: 1rem;
+    background-color: #4CAF50; /* green header for main page */
+    color: white;
+}
+
+body.dark header {
+    background-color: #2E7D32; /* darker green in dark mode */
+}
+
+/* Footer */
+footer {
     padding: 1rem;
     background-color: #f0f0f0;
 }
 
-body.dark header, body.dark footer {
+body.dark footer {
     background-color: #1e1e1e;
 }
 
@@ -37,7 +48,14 @@ nav a {
     color: inherit;
 }
 
-/* Table styling */
+/* Button styling */
+button#theme-toggle {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0.5rem 0;
+}
+
+/* Table styling (if needed for main page) */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -59,11 +77,4 @@ pre {
 
 body.dark pre {
     background-color: #1e1e1e;
-}
-
-/* Button styling */
-button#theme-toggle {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin: 0.5rem 0;
 }
